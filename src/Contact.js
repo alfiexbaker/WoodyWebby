@@ -4,7 +4,6 @@ import './Contact.css';
 const Contact = () => {
     return (
         <div>
-        <h1>Contact Us</h1>
         <div className="contact-container">
            {/* This is the added header */}
             {/* Contact Form */}

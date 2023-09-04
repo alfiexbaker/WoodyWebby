@@ -3,9 +3,8 @@
   padding-top: 120px;
   width: 100%;
   box-sizing: border-box;
-  min-height: 100vh;  /* Ensure the App covers the entire height of the viewport */
+  min-height: 100vh;
 }
-
 
 .woodroffe-section {
   display: flex;
@@ -108,4 +107,94 @@ h1 {
 
 .gallery img:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding-top: 60px;
+  }
+
+  .woodroffe-section {
+    flex-direction: column;
+  }
+
+  .woodroffe-description {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+
+  .woodroffe-image {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .App-header {
+    flex-direction: column;
+  }
+
+  .App-logo {
+    height: 50px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  nav a {
+    flex: none;
+    margin-bottom: 5px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .gallery {
+    flex-direction: column;
+  }
+
+  .gallery img {
+    width: 100%;
+  }
+}
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+  }
+
+  nav.open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .App-header {
+    justify-content: space-between;
+  }
+
+  .social-icons {
+    position: absolute;
+    right: 10px;
+  }
 }

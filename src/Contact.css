@@ -1,22 +1,25 @@
-/* Maintain general typography */
 .contact-container {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    background-color: #2a2d3d;
-    color: #CA9721;
-    border-radius: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  background-color: #2a2d3d;
+  color: #CA9721;
 }
+
+@media (min-width: 769px) {
+  .contact-container {
+    flex-direction: row;
+  }
+}
+
 h1 {
-    color: #CA9721; /* Using the H1 color from App.css */
+    color: #CA9721;
     font-size: 2.5em;
     text-align: center;
     font-family: 'Amaranth', sans-serif;
-    margin-bottom: 20px;
 }
 
-/* Styles specific to the contact form */
 input, select, textarea, button {
     width: 75%;
     height: 40px;
@@ -30,8 +33,8 @@ input, select, textarea, button {
 }
 
 textarea {
-    height: auto;  /* Reset height for the textarea */
-    resize: vertical;  /* Allow vertical resize */
+    height: auto;
+    resize: vertical;
 }
 
 button {
@@ -45,10 +48,9 @@ button:hover {
     background-color: #A47A1A;
 }
 
-/* Utilize the woodroffe-description conventions for form and contact details */
 .contact-form, .map-and-details {
     flex: 1;
-    font-family: 'Georgia', serif;  /* This will override the Segoe UI from the parent */
+    font-family: 'Georgia', serif;
     font-size: 18px;
     line-height: 1.6;
     color: white;
@@ -59,7 +61,6 @@ button:hover {
     text-align: center;
 }
 
-/* Google Maps & Contact Details */
 .map-and-details {
     display: flex;
     flex-direction: column;
@@ -70,4 +71,22 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  input, select, textarea, button {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .contact-form, .map-and-details {
+    max-width: 100%;
+  }
 }

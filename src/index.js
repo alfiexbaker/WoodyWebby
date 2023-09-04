@@ -6,14 +6,15 @@ import App from './App';
 // Show the beer.gif loader before rendering the app
 
 const loader = document.querySelector('#root');
-const root = ReactDOM.createRoot(loader);const showLoadingAnimation = () => {
+const root = ReactDOM.createRoot(loader);
+
+const showLoadingAnimation = () => {
     loader.innerHTML = '<img src="/beer.gif" alt="loading..." class="loading-gif"/>';
     setTimeout(() => {
-        ReactDOM.render(
+        root.render(
             <React.StrictMode>
                 <App />
-            </React.StrictMode>,
-            loader
+            </React.StrictMode>
         );
     }, 1500); // Display the loading GIF for 1.5 seconds
 };
