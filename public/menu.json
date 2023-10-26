@@ -1,0 +1,7 @@
+[
+  {"name": "Fish and Chips", "description": "Freshly caught fish with crispy chips.", "price": "£8.50"},
+  {"name": "Steak Pie", "description": "Tender beef in rich gravy, topped with flaky pastry.", "price": "£9.00"},
+  {"name": "Bangers and Mash", "description": "Juicy sausages with creamy mashed potatoes and onion gravy.", "price": "£7.50"},
+  {"name": "Ploughman's Lunch", "description": "Cheese, bread, pickles, and apple slices. A classic!", "price": "£6.50"},
+  {"name": "Chicken Tikka Masala", "description": "Juicy chicken in a rich and spicy masala sauce.", "price": "£8.00"}
+]

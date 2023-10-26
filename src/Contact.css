@@ -4,6 +4,7 @@
   flex-direction: column-reverse;
   justify-content: space-between;
   background-color: #2a2d3d;
+  z-index: 1;
   color: #CA9721;
 }
 

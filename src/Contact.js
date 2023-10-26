@@ -5,10 +5,10 @@ const Contact = () => {
     return (
         <div>
         <div className="contact-container">
-           {/* This is the added header */}
             {/* Contact Form */}
             <div className="contact-form">
                 <form>
+                <h1>Contact Us</h1>
                     <input type="text" placeholder="Name" required />
                     <input type="email" placeholder="Email" required />
                     <select>

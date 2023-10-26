@@ -1,10 +1,11 @@
+// src/Gallery.js
 import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import './Gallery.css';
 
-const Gallery = () => {
+const Gallery = ({ source }) => {
     const [imageNames, setImageNames] = useState([]);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -18,7 +19,7 @@ const Gallery = () => {
     };
 
     useEffect(() => {
-        fetch('/gallery.json')
+        fetch(source)
             .then(response => response.json())
             .then(data => {
                 setImageNames(data);
@@ -30,7 +31,7 @@ const Gallery = () => {
         window.addEventListener("resize", () => {
             setIsMobile(window.innerWidth <= 768);
         });
-    }, []);
+    }, [source]);
 
     return (
         <div className="gallery-container">
@@ -39,7 +40,7 @@ const Gallery = () => {
                     <Slider {...settings}>
                         {imageNames.map((imageName, index) => (
                             <div key={index}>
-                                <img className="gallery-slide" src={`/gallery/${imageName}`} alt={`Image ${index}`} />
+                                <img className="gallery-slide" src={`${imageName}`} alt={`Image ${index}`} />
                             </div>
                         ))}
                     </Slider>
@@ -50,7 +51,7 @@ const Gallery = () => {
                         <div
                             key={index}
                             className="card"
-                            style={{ backgroundImage: `url(/gallery/${imageName})` }}
+                            style={{ backgroundImage: `url(${imageName})` }}
                         >
                         </div>
                     ))}
