@@ -9,6 +9,7 @@
   min-height: 100vh;
 }
 
+
 .woodroffe-section {
   display: flex;
   align-items: center;
@@ -269,4 +270,29 @@ h1 {
   .menu-toggle {
     font-size: 20px;
   }
+}
+.book-table-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.book-table-section .book-table-button {
+  text-decoration: none;
+}
+
+.book-table-section button {
+  background-color: Black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  Font-Family: 'Georgia', serif;
+  border-radius: 5px;
+  width: 200px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-table-section button:hover {
+  background-color: #A0522D;
 }

@@ -5,6 +5,8 @@ import Gallery from './Gallery';
 import Menu from './Menu';
 import Contact from './Contact';
 import './App.css';
+import StayWithUs from './StayWithUs';
+
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +31,9 @@ function App() {
       <Gallery source="/gallery.json" />
       <Menu />
       <Gallery source="/food.json" />
-      <Contact />
+        <StayWithUs />
+        <Gallery source={"hotel.json"}/>
+        <Contact />
     </div>
   );
 }
