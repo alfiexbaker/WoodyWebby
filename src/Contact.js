@@ -61,7 +61,7 @@ const Contact = () => {
                         </iframe>
                     </div>
                     <div className="contact-details">
-                        <p><strong>Address:</strong> 1 Castleton Rd, Hope, Hope Valley S33 6SB <br /><strong>Phone:</strong> +1234567890</p>
+                        <p><strong>Address:</strong> 1 Castleton Rd, Hope, Hope Valley S33 6SB <br /><strong>Phone:</strong> 01433 623093</p>
                     </div>
                 </div>
             </div>

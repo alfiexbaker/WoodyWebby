@@ -16,10 +16,10 @@ const Header = ({ menuOpen, setMenuOpen, scrollPosition }) => {
         <a href ="https://www.booking.com/Share-GZMprd"> Stay With Us</a>
       </nav>
       <div className="social-icons">
-        <a href="https://www.facebook.com/yourpage">
+        <a href="https://www.facebook.com/profile.php?id=100076126482146">
           <i className="fab fa-facebook"></i>
     </a>
-        <a href="https://www.tripadvisor.com/yourpage">
+        <a href="https://www.tripadvisor.co.uk/Restaurant_Review-g806086-d2688626-Reviews-The_Woodroffe_Arms-Hope_Hope_Valley_Peak_District_National_Park_England.html?m=19905">
           <i className="fab fa-tripadvisor"></i>
         </a>
       </div>
