@@ -7,7 +7,20 @@ const Contact = () => {
     const sendEmail = (e) => {
         e.preventDefault();
 
-        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, e.target, process.env.REACT_APP_EMAILJS_USER_ID)
+        // Build template parameters from the form data
+        const templateParams = {
+            from_name: e.target.from_name.value,
+            from_email: e.target.from_email.value,
+            enquiry_type: e.target.enquiry_type.value,
+            message: e.target.message.value,
+        };
+
+        emailjs.send(
+            process.env.REACT_APP_EMAILJS_SERVICE_ID,
+            process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+            templateParams,
+            process.env.REACT_APP_EMAILJS_USER_ID
+        )
             .then((result) => {
                 console.log('Email successfully sent!', result.text);
                 // Optionally, clear the form or show a success message here
@@ -20,9 +33,7 @@ const Contact = () => {
     return (
         <div id="contact-section">
             <h1>Contact Us</h1>
-
             <div className="contact-container">
-                {/* Contact Form */}
                 <div className="contact-form">
                     <form onSubmit={sendEmail}>
                         <input type="text" name="from_name" placeholder="Name" required />
@@ -36,8 +47,6 @@ const Contact = () => {
                         <button type="submit">Submit</button>
                     </form>
                 </div>
-
-                {/* Google Maps & Contact Details */}
                 <div className="map-and-details">
                     {/* Google Maps Embed */}
                     <div style={{ width: '100%' }}>
@@ -51,7 +60,6 @@ const Contact = () => {
                             src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=en&amp;q=1%20Castleton%20Rd,%20Hope,%20Hope%20Valley%20S33%206SB+(The%20Woodroffe%20Arms)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                         </iframe>
                     </div>
-
                     <div className="contact-details">
                         <p><strong>Address:</strong> 1 Castleton Rd, Hope, Hope Valley S33 6SB <br /><strong>Phone:</strong> +1234567890</p>
                     </div>
