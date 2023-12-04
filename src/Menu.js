@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import './Menu.css';
 import "react-pdf/dist/esm/Page/TextLayer.css";
-
-// Set up the worker
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Menu = () => {
@@ -55,13 +53,14 @@ const Menu = () => {
                             </div>
                         )}
                     </div>
+
                 ))}
             </div>
-            <div className="book-table-section">
-                <a href="tel:+441433623093" className="book-table-button">
-                    <button>Book a Table</button>
-                </a>
-            </div>
+            <center>
+            <a href="tel:+441433623093" className="book-table-section">
+                <button>Book a Table</button>
+            </a>
+            </center>
         </>
     );
 };

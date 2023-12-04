@@ -1,22 +1,38 @@
 import React from 'react';
+import emailjs from 'emailjs-com';
 import './Contact.css';
 
 const Contact = () => {
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, e.target, process.env.REACT_APP_EMAILJS_USER_ID)
+            .then((result) => {
+                console.log('Email successfully sent!', result.text);
+                // Optionally, clear the form or show a success message here
+            }, (error) => {
+                console.log('Failed to send email:', error.text);
+                // Optionally, show an error message here
+            });
+    };
+
     return (
         <div id="contact-section">
+            <h1>Contact Us</h1>
+
             <div className="contact-container">
                 {/* Contact Form */}
                 <div className="contact-form">
-                    <form>
-                        <h1>Contact Us</h1>
-                        <input type="text" placeholder="Name" required />
-                        <input type="email" placeholder="Email" required />
-                        <select>
+                    <form onSubmit={sendEmail}>
+                        <input type="text" name="from_name" placeholder="Name" required />
+                        <input type="email" name="from_email" placeholder="Email" required />
+                        <select name="enquiry_type">
                             <option value="business">Business Enquiry</option>
                             <option value="stay">Stay with Us</option>
                             <option value="general">General Enquiry</option>
                         </select>
-                        <textarea rows="5" placeholder="Message" required></textarea>
+                        <textarea name="message" rows="5" placeholder="Message" required></textarea>
                         <button type="submit">Submit</button>
                     </form>
                 </div>

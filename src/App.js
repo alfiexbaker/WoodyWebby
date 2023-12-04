@@ -5,14 +5,18 @@ import Gallery from './Gallery';
 import Menu from './Menu';
 import Contact from './Contact';
 import './App.css';
+import emailjs from 'emailjs-com';
 import StayWithUs from './StayWithUs';
+emailjs.init(process.env.REACT_APP_EMAILJS_USER_ID);
+
 
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [scrollPosition, setScrollPosition] = useState(0);
 
-  useEffect(() => {
+
+    useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
     };
@@ -35,7 +39,9 @@ function App() {
         <Gallery source={"hotel.json"}/>
         <Contact />
     </div>
+
   );
+
 }
 
 export default App;
