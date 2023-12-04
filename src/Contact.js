@@ -1,32 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import './Contact.css';
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        from_name: '',
+        from_email: '',
+        enquiry_type: 'business', // Assuming 'business' as the default value
+        message: '',
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
 
     const sendEmail = (e) => {
         e.preventDefault();
 
-        // Build template parameters from the form data
-        const templateParams = {
-            from_name: e.target.from_name.value,
-            from_email: e.target.from_email.value,
-            enquiry_type: e.target.enquiry_type.value,
-            message: e.target.message.value,
-        };
-
         emailjs.send(
             process.env.REACT_APP_EMAILJS_SERVICE_ID,
             process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-            templateParams,
+            formData,
             process.env.REACT_APP_EMAILJS_USER_ID
         )
             .then((result) => {
                 console.log('Email successfully sent!', result.text);
-                // Optionally, clear the form or show a success message here
+                // Clear the form after successful submission
+                setFormData({
+                    from_name: '',
+                    from_email: '',
+                    enquiry_type: 'business',
+                    message: '',
+                });
             }, (error) => {
                 console.log('Failed to send email:', error.text);
-                // Optionally, show an error message here
             });
     };
 
@@ -36,14 +47,39 @@ const Contact = () => {
             <div className="contact-container">
                 <div className="contact-form">
                     <form onSubmit={sendEmail}>
-                        <input type="text" name="from_name" placeholder="Name" required />
-                        <input type="email" name="from_email" placeholder="Email" required />
-                        <select name="enquiry_type">
+                        <input
+                            type="text"
+                            name="from_name"
+                            placeholder="Name"
+                            required
+                            value={formData.from_name}
+                            onChange={handleChange}
+                        />
+                        <input
+                            type="email"
+                            name="from_email"
+                            placeholder="Email"
+                            required
+                            value={formData.from_email}
+                            onChange={handleChange}
+                        />
+                        <select
+                            name="enquiry_type"
+                            value={formData.enquiry_type}
+                            onChange={handleChange}
+                        >
                             <option value="business">Business Enquiry</option>
                             <option value="stay">Stay with Us</option>
                             <option value="general">General Enquiry</option>
                         </select>
-                        <textarea name="message" rows="5" placeholder="Message" required></textarea>
+                        <textarea
+                            name="message"
+                            rows="5"
+                            placeholder="Message"
+                            required
+                            value={formData.message}
+                            onChange={handleChange}
+                        ></textarea>
                         <button type="submit">Submit</button>
                     </form>
                 </div>
